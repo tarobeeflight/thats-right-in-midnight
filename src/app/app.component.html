@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <h1>朝までそれ正解</h1>
+  </div>
+  <div class="row justify-content-center">
+    <h5>お題</h5>
+  </div>
+  <div class="row justify-content-center">
+    <p>{{theme}}</p>
+  </div>
+  <div class="row justify-content-center">
+    <input type="button" (click)="generateSubject()" value="生成" />
+  </div>
+  <div class="row justify-content-center">
+    <input type="button" (click)="copyTheme()" value="コピー" />
+  </div>
+  <div class="row justify-content-center">
+    <h5>出題カテゴリ</h5>
+  </div>
+  <div class="row justify-content-center">
+    <label *ngFor="let subject of subjects; index as i">
+      <input type="checkbox" name="category{{i}}" [(ngModel)]="subjects[i].selected"
+      value="subject.category" >{{subject['category_ja']}}
+    </label>
+  </div>
+  <div class="row justify-content-center">
+    <input type="button" (click)="playSound()" value="正解音" />
+  </div>
+</div>
