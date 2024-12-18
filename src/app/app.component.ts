@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 export class AppComponent implements OnInit {
   initial = '';
   subject = '';
+  playingBgm = false;
   subjects: subject[] = [];
   private bgm: HTMLAudioElement = new Audio('assets/music/bgm.mp3');
 
@@ -75,12 +76,27 @@ export class AppComponent implements OnInit {
     return ret;
   }
   playSound() {
-    
     this.bgm.play();
+    this.playingBgm = true;
+    this.bgm.onended = () => {
+      this.playingBgm = false;
+    };
+  }
+  pauseSound() {
+    this.bgm.pause();
+    this.playingBgm = false;
   }
   stopSound() {
     this.bgm.pause();
     this.bgm.currentTime = 0;
+    this.playingBgm = false;
+  }
+  onClickPlayButton() {
+    if (this.playingBgm) {
+      this.pauseSound()
+    } else {
+      this.playSound();
+    }
   }
 }
 
