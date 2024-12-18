@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   private bgm: HTMLAudioElement = new Audio('assets/music/bgm.mp3');
 
   get theme() {
-    return `「${this.initial}」から始まる${this.subject}は？`
+    return `「${this.initial}」から始まる${this.subject ? this.subject : '○○'}は？`
   }
   get targetCategories() {
     return this.subjects.filter(data => data.selected).map(data => data.category);
@@ -75,7 +75,12 @@ export class AppComponent implements OnInit {
     return ret;
   }
   playSound() {
+    
     this.bgm.play();
+  }
+  stopSound() {
+    this.bgm.pause();
+    this.bgm.currentTime = 0;
   }
 }
 

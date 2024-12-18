@@ -1,29 +1,38 @@
-<div class="container">
+<div class="container p-3">
   <div class="row justify-content-center">
     <h1>朝までそれ正解</h1>
   </div>
+  <br>
   <div class="row justify-content-center">
-    <h5>お題</h5>
+      <h5>お題</h5>
   </div>
   <div class="row justify-content-center">
     <p>{{theme}}</p>
   </div>
-  <div class="row justify-content-center">
-    <input type="button" (click)="generateSubject()" value="生成" />
+  <br>
+  <div class="row justify-content-center mb-2">
+    <button class="btn btn-outline-primary px-4" (click)="generateSubject()" value="生成">生成</button>
   </div>
-  <div class="row justify-content-center">
-    <input type="button" (click)="copyTheme()" value="コピー" />
+  <div class="row justify-content-center mb-2">
+    <button class="btn btn-outline-primary px-3" (click)="copyTheme()">コピー</button>
   </div>
+  <br><br><br>
   <div class="row justify-content-center">
     <h5>出題カテゴリ</h5>
   </div>
   <div class="row justify-content-center">
-    <label *ngFor="let subject of subjects; index as i">
-      <input type="checkbox" name="category{{i}}" [(ngModel)]="subjects[i].selected"
-      value="subject.category" >{{subject['category_ja']}}
-    </label>
+      <div class="mx-2  form-check form-check-inline" *ngFor="let subject of subjects; index as i">
+        <input class="form-check-input" type="checkbox" id="category{{i}}" name="category{{i}}" 
+        [(ngModel)]="subjects[i].selected" value="subject.category">
+        <label class="form-check-label" for="category{{i}}">{{subject['category_ja']}}</label>
+      </div>  
+  </div>
+  <br><br><br>
+  <div class="row justify-content-center">
+    <h5>サウンド</h5>
   </div>
   <div class="row justify-content-center">
-    <input type="button" (click)="playSound()" value="正解音" />
+    <button class="mx-3 btn btn-outline-success px-5" type="button" (click)="playSound()">▶</button>
+    <button class="mx-3 btn btn-outline-danger px-5" type="button" (click)="stopSound()">■</button>
   </div>
 </div>
