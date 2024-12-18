@@ -3,6 +3,7 @@
         {
             "category": "common",
             "category_ja": "一般",
+            "selected": true,
             "subjects": [
                 "部下に慕われる上司の条件",
                 "怖いもの",
@@ -58,6 +59,7 @@
         {
             "category": "citycom",
             "category_ja": "シティ・コム",
+            "selected": false,
             "subjects": [
                 "エンジニアにとって大事なこと",
                 "会社の特徴",
@@ -68,6 +70,7 @@
         {
             "category": "mie",
             "category_ja": "三重大学",
+            "selected": false,
             "subjects": [
                 "人間支援システム研究室の特徴",
                 "三重のいいところ"
